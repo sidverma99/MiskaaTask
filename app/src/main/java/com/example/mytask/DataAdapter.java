@@ -10,6 +10,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
+
 import java.util.List;
 
 public class DataAdapter extends RecyclerView.Adapter<DataAdapter.MyViewHolder> {
@@ -24,14 +26,16 @@ public class DataAdapter extends RecyclerView.Adapter<DataAdapter.MyViewHolder> 
     @NonNull
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view= LayoutInflater.from(parent.getContext()).inflate(R.layout.row,parent,false);
+        View view= LayoutInflater.from(context).inflate(R.layout.row,parent,false);
         return new MyViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull DataAdapter.MyViewHolder holder, int position) {
-        String borderingCountries="",languages,populationString;
-
+        Glide.with(context).load(dataList.get(position).getFlag()).into(holder.flag);
+        holder.name.setText("Country Name: "+dataList.get(position).getName());
+        holder.capital.setText("Country Capital: "+dataList.get(position).getCapital());
+        holder.region.setText("Country Region: "+dataList.get(position).getRegion());
     }
 
     @Override
