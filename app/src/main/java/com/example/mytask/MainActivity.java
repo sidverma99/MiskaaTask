@@ -48,7 +48,6 @@ public class MainActivity extends AppCompatActivity {
                         RecyclerView.LayoutManager layoutManager=new LinearLayoutManager(MainActivity.this);
                         recyclerView.setLayoutManager(layoutManager);
                         recyclerView.setAdapter(dataAdapter);
-
                     }
 
                     @Override
