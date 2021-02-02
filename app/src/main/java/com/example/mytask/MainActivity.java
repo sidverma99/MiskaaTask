@@ -40,12 +40,15 @@ public class MainActivity extends AppCompatActivity {
                     public void onResponse(Call<List<Response>> call, retrofit2.Response<List<Response>> response) {
                         progressBar.setVisibility(View.GONE);
                         recyclerView.setVisibility(View.VISIBLE);
-                        if(response.body().size()>0){
-                            dataAdapter=new DataAdapter(response.body(),MainActivity.this);
-                            RecyclerView.LayoutManager layoutManager=new LinearLayoutManager(MainActivity.this);
-                            recyclerView.setLayoutManager(layoutManager);
-                            recyclerView.setAdapter(dataAdapter);
+                        if(response.body()==null){
+                            Toast.makeText(getApplicationContext(),"Region Not Found",Toast.LENGTH_LONG).show();
+                            return;
                         }
+                        dataAdapter=new DataAdapter(response.body(),MainActivity.this);
+                        RecyclerView.LayoutManager layoutManager=new LinearLayoutManager(MainActivity.this);
+                        recyclerView.setLayoutManager(layoutManager);
+                        recyclerView.setAdapter(dataAdapter);
+
                     }
 
                     @Override

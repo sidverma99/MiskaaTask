@@ -36,14 +36,14 @@ public class DataAdapter extends RecyclerView.Adapter<DataAdapter.MyViewHolder> 
             if(i==dataList.get(position).getBorders().size()-1){
                 neighbour=neighbour+dataList.get(position).getBorders().get(i);
             }else {
-                neighbour=neighbour+dataList.get(position).getBorders().get(i)+",";
+                neighbour=neighbour+dataList.get(position).getBorders().get(i)+", ";
             }
         }
         for(int i=0;i<dataList.get(position).getLanguagesList().size();i++){
             if(i==dataList.get(position).getLanguagesList().size()-1){
                 language=language+dataList.get(position).getLanguagesList().get(i).getName();
             } else{
-                language=language+dataList.get(position).getLanguagesList().get(i).getName()+",";
+                language=language+dataList.get(position).getLanguagesList().get(i).getName()+", ";
             }
         }
         Utils.fetchSvg(context,dataList.get(position).getFlag(),holder.flag);
