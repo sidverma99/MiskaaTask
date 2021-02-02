@@ -25,7 +25,7 @@ public class Utils {
         okHttpClient.newCall(request).enqueue(new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
-                target.setImageResource(R.drawable.ic_launcher_background);
+
             }
 
             @Override
